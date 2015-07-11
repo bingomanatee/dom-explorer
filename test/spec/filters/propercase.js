@@ -12,8 +12,8 @@ describe('Filter: properCase', function () {
   }));
 
   it('should return the input prefixed with "properCase filter:"', function () {
-    var text = 'angularjs';
-    expect(properCase(text)).toBe('properCase filter: ' + text);
+    var text = 'angular js';
+    expect(properCase(text)).toBe('Angular Js');
   });
 
 });

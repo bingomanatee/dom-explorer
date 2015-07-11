@@ -1,7 +1,8 @@
 @import "compass/css3";
 @import "compass/css3/appearance";
 
-$leftPadding: 1.4rem;
+$dialogPadding: 1.4rem;
+$button-padding: 1rem;
 
 html {
   font-size: 10px;
@@ -117,26 +118,72 @@ body {
   height: 14px;
 }
 
+@mixin dialog-header() {
+  @include flex-basis(5.2rem);
+  @include flex-grow(0);
+  @include flex-shrink(0);
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  // is itself a flex container
+  @include display_flex();
+  @include flex-direction(row);
+  @include flex-wrap(nowrap);
+  flex-wrap: nowrap;
+  align-content: center;
+  align-self: stretch;
+  height: 100%;
+  border-bottom: 1px solid #dbdbdb;
+}
+
+.tree-node-children {
+}
+
 tree-node {
-  button.folder-button {
+  display: block;
+  min-height: 2.5rem;
+  line-height: 2.5rem;
+  &.tree-node--over {
+    background-color: blue;
+    color: white;
+  }
+
+  .tree-node__folder-button {
+    margin-left: $button-padding;
     @include appearance(none);
     border: none;
     @include sprite(0px, 14px);
-  }
 
-  button.zoom-button {
-    @include appearance(none);
-    border: none;
-    @include sprite(57px, 68px);
-    &.zoom-button-closed {
-      @include sprite(71px, 82px);
+    &.tree-node__folder-button--head {
+      @include sprite(14px, 28px);
+
+    }
+
+    &.tree-node__folder-button--text {
+      @include sprite(28px, 42px);
+
     }
   }
 
-  display: block;
+  .tree-node__zoom-button {
+    @include appearance(none);
+    border: none;
+    @include sprite(57px, 68px);
+    margin-left: $button-padding;
+    &.tree-node__zoom-button--closed {
+      @include sprite(71px, 82px);
+    }
+    &.tree-node__zoom-button--hidden {
+      visibility: hidden;
+    }
+  }
+
+  .tree-node__label {
+    margin-left: $button-padding;
+  }
   children {
     display: block;
-    margin-left: 1rem;
   }
 }
 
@@ -150,57 +197,54 @@ tree-node {
   width: 50%;
   height: 50%;
   z-index: 100;
+  font-family: Trebauchet, Helvetica, Arial, sans-serif;
+  font-size: 1.4rem;
 
   @include display_flex();
   @include flex-direction(column);
   flex-wrap: nowrap;
-  justify-content: center;
-  align-content: flex-start;
-  align-items: stretch;
+  // justify-content: center;
+  // align-content: flex-start;
+  // align-items: stretch;
 
   header {
-    @include flex-basis(5.2rem);
-    @include flex-grow(0);
-    @include flex-shrink(0);
-    padding: 0;
-    margin: 0;
-    font-size: 1.4rem;
-    font-family: Trebauchet, Helvetica, Arial, sans-serif;
-    width: 100%;
+    @include dialog-header;
     background-color: rgb(242, 242, 242);
-    .dialog__header-row {
-      @include display_flex();
-      @include flex-direction(row);
-      @include flex-wrap(nowrap);
-      flex-wrap: nowrap;
-      align-content: center;
-      align-self: stretch;
-      height: 100%;
-      .dialog__title {
-        display: block;
-        @include flex-basis(auto);
-        @include flex-grow(1);
-        @include flex-shrink(0);
-        padding-left: $leftPadding;
-      }
-      a.close {
-        display: block;
-        @include flex-basis(6rem);
-        @include flex-grow(0);
-        @include flex-shrink(0);
-        padding-right: $leftPadding;
+
+    .dialog__title {
+      display: block;
+      @include flex-basis(auto);
+      @include flex-grow(1);
+      @include flex-shrink(0);
+      padding-left: $dialogPadding;
+    }
+    .close {
+      display: block;
+      @include flex-basis(6rem);
+      @include flex-grow(0);
+      @include flex-shrink(0);
+      padding-right: $dialogPadding;
+      text-align: right;
+      a {
+        text-decoration: none;
+        font-size: 1.5rem;
+        color: rgb(180, 180, 180);
       }
     }
+
   }
   nav {
-    padding: 0;
-    margin: 0;
-    padding-left: $leftPadding;
-    @include flex-basis(5.2rem);
-    @include flex-grow(0);
-    @include flex-shrink(0);
-    align-self: stretch;
-    width: 100%;
+    @include dialog-header;
+
+    .dialog__label {
+      display: block;
+      @include flex-basis(auto);
+      @include flex-grow(1);
+      @include flex-shrink(0);
+      padding-left: $dialogPadding;
+      color: #b4b4b4;
+    }
+
   }
 
   section {
@@ -209,17 +253,21 @@ tree-node {
     flex-basis: 0%;
     flex-grow: 1;
     flex-shrink: 1;
-    padding-left: $leftPadding;
+    padding-left: $dialogPadding;
+    padding-top: $dialogPadding/2;
+    padding-bottom: $dialogPadding/2;
     overflow-y: scroll;
     overflow-x: hidden;
     height: 100%;
     width: 100%;
+    background-color: #fefefe;
+    @include box-shadow(rgba(0, 0, 0, 0.125) 3px 3px 5px inset);
   }
 
   footer {
     padding: 0;
     margin: 0;
-    padding-left: $leftPadding;
+    padding-left: $dialogPadding;
     @include flex-basis(5.2rem);
     @include flex-grow(0);
     @include flex-shrink(0);

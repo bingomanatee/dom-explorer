@@ -12,9 +12,8 @@ describe('Directive: treeNodeChildren', function () {
     scope = $rootScope.$new();
   }));
 
-  it('should make hidden element visible', inject(function ($compile) {
+  it('has no tests', inject(function ($compile) {
     element = angular.element('<tree-node-children></tree-node-children>');
     element = $compile(element)(scope);
-    expect(element.text()).toBe('this is the treeNodeChildren directive');
   }));
 });

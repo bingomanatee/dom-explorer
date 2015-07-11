@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Directive: tree', function () {
+xdescribe('Directive: tree', function () {
 
   // load the directive's module
   beforeEach(module('domExplorerApp'));
