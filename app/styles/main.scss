@@ -1,0 +1,229 @@
+@import "compass/css3";
+@import "compass/css3/appearance";
+
+$leftPadding: 1.4rem;
+
+html {
+  font-size: 10px;
+}
+
+// bower:scss
+// endbower
+
+.browsehappy {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+body {
+  padding: 0;
+}
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.header,
+.marketing,
+.footer {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* Custom page header */
+.header {
+  border-bottom: 1px solid #e5e5e5;
+  margin-bottom: 10px;
+
+  /* Make the masthead heading the same height as the navigation */
+  h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 40px;
+    padding-bottom: 19px;
+  }
+}
+
+/* Custom page footer */
+.footer {
+  padding-top: 19px;
+  color: #777;
+  border-top: 1px solid #e5e5e5;
+}
+
+.container-narrow > hr {
+  margin: 30px 0;
+}
+
+/* Main marketing message and sign up button */
+.jumbotron {
+  text-align: center;
+  border-bottom: 1px solid #e5e5e5;
+
+  .btn {
+    font-size: 21px;
+    padding: 14px 24px;
+  }
+}
+
+/* Supporting marketing content */
+.marketing {
+  margin: 40px 0;
+
+  p + h4 {
+    margin-top: 28px;
+  }
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 730px;
+  }
+
+  /* Remove the padding we set earlier */
+  .header,
+  .marketing,
+  .footer {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  /* Space out the masthead */
+  .header {
+    margin-bottom: 30px;
+  }
+  /* Remove the bottom border on the jumbotron for visual effect */
+  .jumbotron {
+    border-bottom: 0;
+  }
+}
+
+#fade {
+  position: fixed;
+  left: 0%;
+  top: 0%;
+  background-color: black;
+  -moz-opacity: 0.7;
+  opacity: .70;
+  filter: alpha(opacity=70);
+  width: 100%;
+  height: 100%;
+  z-index: 90;
+}
+
+@mixin sprite($left, $right) {
+  background: url(/images/icon-sprite.png) no-repeat ($left * -1) 0px;
+  background-size: 112px 14px;
+  width: ($right - $left);
+  height: 14px;
+}
+
+tree-node {
+  button.folder-button {
+    @include appearance(none);
+    border: none;
+    @include sprite(0px, 14px);
+  }
+
+  button.zoom-button {
+    @include appearance(none);
+    border: none;
+    @include sprite(57px, 68px);
+    &.zoom-button-closed {
+      @include sprite(71px, 82px);
+    }
+  }
+
+  display: block;
+  children {
+    display: block;
+    margin-left: 1rem;
+  }
+}
+
+#overlay.dialog {
+  position: fixed;
+  left: 25%;
+  top: 25%;
+  padding: 0;
+  border: 2px solid black;
+  background-color: #ffffff;
+  width: 50%;
+  height: 50%;
+  z-index: 100;
+
+  @include display_flex();
+  @include flex-direction(column);
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-content: flex-start;
+  align-items: stretch;
+
+  header {
+    @include flex-basis(5.2rem);
+    @include flex-grow(0);
+    @include flex-shrink(0);
+    padding: 0;
+    margin: 0;
+    font-size: 1.4rem;
+    font-family: Trebauchet, Helvetica, Arial, sans-serif;
+    width: 100%;
+    background-color: rgb(242, 242, 242);
+    .dialog__header-row {
+      @include display_flex();
+      @include flex-direction(row);
+      @include flex-wrap(nowrap);
+      flex-wrap: nowrap;
+      align-content: center;
+      align-self: stretch;
+      height: 100%;
+      .dialog__title {
+        display: block;
+        @include flex-basis(auto);
+        @include flex-grow(1);
+        @include flex-shrink(0);
+        padding-left: $leftPadding;
+      }
+      a.close {
+        display: block;
+        @include flex-basis(6rem);
+        @include flex-grow(0);
+        @include flex-shrink(0);
+        padding-right: $leftPadding;
+      }
+    }
+  }
+  nav {
+    padding: 0;
+    margin: 0;
+    padding-left: $leftPadding;
+    @include flex-basis(5.2rem);
+    @include flex-grow(0);
+    @include flex-shrink(0);
+    align-self: stretch;
+    width: 100%;
+  }
+
+  section {
+    padding: 0;
+    margin: 0;
+    flex-basis: 0%;
+    flex-grow: 1;
+    flex-shrink: 1;
+    padding-left: $leftPadding;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 100%;
+    width: 100%;
+  }
+
+  footer {
+    padding: 0;
+    margin: 0;
+    padding-left: $leftPadding;
+    @include flex-basis(5.2rem);
+    @include flex-grow(0);
+    @include flex-shrink(0);
+    align-self: stretch;
+    width: 100%;
+  }
+}

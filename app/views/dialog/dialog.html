@@ -1,0 +1,21 @@
+<div id="overlay" ng-show="display" class="dialog">
+  <header>
+    <div style="height: 100%">sfasdf
+      <div class="dialog__header-row" ng-if="false">
+        <span class="dialog__title">Title</span>
+        <a class="close" href ng-click="close()">&times;</a>
+      </div>
+    </div>
+  </header>
+  <nav>label</nav>
+  <section class="domNodes">
+    <tree ng-repeat="node in map" node="node">
+    </tree>
+  </section>
+  <footer>
+    <a class="simple-link" href="#">Link</a>
+    <button ng-click="close()">Done</button>
+  </footer>
+</div>
+
+<div id="fade" ng-show="display"></div>
