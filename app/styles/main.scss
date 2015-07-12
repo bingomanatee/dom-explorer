@@ -1,8 +1,52 @@
 @import "compass/css3";
 @import "compass/css3/appearance";
 
-$dialogPadding: 1.4rem;
+$dialogPadding: 1.5rem;
 $button-padding: 1rem;
+$border-color: #b5b5b5;
+$dialog-border-radius: 0.5rem;
+
+@mixin sprite($left, $right) {
+  background: url(/images/icon-sprite.png) no-repeat ($left * -1) 0px;
+  background-size: 112px 14px;
+  width: ($right - $left);
+  height: 14px;
+}
+
+@mixin dialog-header() {
+  @include flex-basis(5.2rem);
+  @include flex-grow(0);
+  @include flex-shrink(0);
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  // is itself a flex container
+  @include display_flex();
+  @include flex-direction(row);
+  @include flex-wrap(nowrap);
+  flex-wrap: nowrap;
+  align-content: center;
+  align-self: stretch;
+  border-bottom: 1px solid $border-color;
+}
+
+@mixin tree-node-content-button($size) {
+  @include flex-basis($size);
+  @include flex-grow(0);
+  @include flex-shrink(0);
+  align-items: center;
+  margin-left: $button-padding;
+  @include appearance(none);
+  border: none;
+}
+
+@mixin wide_cell {
+  display: block;
+  @include flex-basis(auto);
+  @include flex-grow(1);
+  @include flex-shrink(0);
+}
 
 html {
   font-size: 10px;
@@ -20,6 +64,7 @@ html {
 
 body {
   padding: 0;
+  font-size: 1.8rem;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -98,93 +143,28 @@ body {
   }
 }
 
+
+.dom-explorer-button {
+  @include appearance(none);
+  border: 1px solid rgba(0, 0, 0, 0.6);
+  @include border-radius(1.5rem);
+  background-color: #e1a300;
+  font-size: 2.5rem;
+  line-height: 5rem;
+  padding: 0 3rem ;
+}
+
+/* ********* DOM EXPLORER ********** */
 #fade {
   position: fixed;
   left: 0%;
   top: 0%;
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.31);
   -moz-opacity: 0.7;
   opacity: .70;
-  filter: alpha(opacity=70);
   width: 100%;
   height: 100%;
   z-index: 90;
-}
-
-@mixin sprite($left, $right) {
-  background: url(/images/icon-sprite.png) no-repeat ($left * -1) 0px;
-  background-size: 112px 14px;
-  width: ($right - $left);
-  height: 14px;
-}
-
-@mixin dialog-header() {
-  @include flex-basis(5.2rem);
-  @include flex-grow(0);
-  @include flex-shrink(0);
-  align-items: center;
-  padding: 0;
-  margin: 0;
-  width: 100%;
-  // is itself a flex container
-  @include display_flex();
-  @include flex-direction(row);
-  @include flex-wrap(nowrap);
-  flex-wrap: nowrap;
-  align-content: center;
-  align-self: stretch;
-  height: 100%;
-  border-bottom: 1px solid #dbdbdb;
-}
-
-.tree-node-children {
-}
-
-tree-node {
-  display: block;
-  min-height: 2.5rem;
-  line-height: 2.5rem;
-  &.tree-node--over {
-    background-color: blue;
-    color: white;
-  }
-
-  .tree-node__folder-button {
-    margin-left: $button-padding;
-    @include appearance(none);
-    border: none;
-    @include sprite(0px, 14px);
-
-    &.tree-node__folder-button--head {
-      @include sprite(14px, 28px);
-
-    }
-
-    &.tree-node__folder-button--text {
-      @include sprite(28px, 42px);
-
-    }
-  }
-
-  .tree-node__zoom-button {
-    @include appearance(none);
-    border: none;
-    @include sprite(57px, 68px);
-    margin-left: $button-padding;
-    &.tree-node__zoom-button--closed {
-      @include sprite(71px, 82px);
-    }
-    &.tree-node__zoom-button--hidden {
-      visibility: hidden;
-    }
-  }
-
-  .tree-node__label {
-    margin-left: $button-padding;
-  }
-  children {
-    display: block;
-  }
 }
 
 #overlay.dialog {
@@ -192,13 +172,15 @@ tree-node {
   left: 25%;
   top: 25%;
   padding: 0;
-  border: 2px solid black;
+  border: 2px solid #b5b5b5;
+  @include border-radius($dialog-border-radius);
   background-color: #ffffff;
   width: 50%;
   height: 50%;
   z-index: 100;
   font-family: Trebauchet, Helvetica, Arial, sans-serif;
   font-size: 1.4rem;
+  @include box-shadow(rgba(0, 0, 0, 0.31)  2rem 1rem 6rem);
 
   @include display_flex();
   @include flex-direction(column);
@@ -210,12 +192,11 @@ tree-node {
   header {
     @include dialog-header;
     background-color: rgb(242, 242, 242);
+    @include border-radius($dialog-border-radius $dialog-border-radius 0 0);
 
     .dialog__title {
-      display: block;
-      @include flex-basis(auto);
-      @include flex-grow(1);
-      @include flex-shrink(0);
+      @include wide-cell;
+
       padding-left: $dialogPadding;
     }
     .close {
@@ -227,7 +208,7 @@ tree-node {
       text-align: right;
       a {
         text-decoration: none;
-        font-size: 1.5rem;
+        font-size: 2rem;
         color: rgb(180, 180, 180);
       }
     }
@@ -242,6 +223,7 @@ tree-node {
       @include flex-grow(1);
       @include flex-shrink(0);
       padding-left: $dialogPadding;
+      font-size: 1.4rem;
       color: #b4b4b4;
     }
 
@@ -259,7 +241,6 @@ tree-node {
     overflow-y: scroll;
     overflow-x: hidden;
     height: 100%;
-    width: 100%;
     background-color: #fefefe;
     @include box-shadow(rgba(0, 0, 0, 0.125) 3px 3px 5px inset);
   }
@@ -273,5 +254,113 @@ tree-node {
     @include flex-shrink(0);
     align-self: stretch;
     width: 100%;
+    @include dialog-header;
+    border-bottom: none;
+    border-top: 1px solid $border-color;
+
+    .dialog-footer__link {
+      @include wide-cell;
+      padding-left: $dialogPadding;
+      font-size: 1.4rem;
+      text-decoration: none;
+      color: #427fed;
+      min-height: 3rem;
+      line-height: 3rem;
+    }
+
+    .dialog-footer__button {
+      @include appearance(none);
+      border: none;
+      background-color: #3b73f1;
+      @include border-radius(4px);
+      color: white;
+      padding: 0 1.5rem;
+      margin-right: $dialogPadding;
+      font-size: 1.4rem;
+      min-height: 3rem;
+      line-height: 3rem;
+    }
   }
+}
+
+tree-node {
+  display: block;
+  min-height: 2.5rem;
+  line-height: 2.5rem;
+  &.tree-node--over {
+    background-color: blue;
+    color: white;
+  }
+
+  color: rgba(0, 0, 0, 0.75);
+
+  @include display_flex();
+  @include flex-direction(row);
+  @include justify-content(flex-start);
+  @include align-items(center);
+
+  .tree-node__folder-button {
+    @include tree-node-content-button(14px);
+    @include sprite(0px, 14px);
+
+    &.tree-node__folder-button--head {
+      @include sprite(14px, 28px);
+
+    }
+
+    &.tree-node__folder-button--text {
+      @include sprite(28px, 42px);
+
+    }
+  }
+
+  .tree-node__zoom-button {
+    @include tree-node-content-button(11px);
+    @include appearance(none);
+    border: none;
+    @include sprite(57px, 68px);
+    margin-left: $button-padding;
+    &.tree-node__zoom-button--closed {
+      @include sprite(71px, 82px);
+    }
+    &.tree-node__zoom-button--hidden {
+      visibility: hidden;
+    }
+  }
+
+  .tree-node__spacer {
+    @include flex-basis(0.1rem);
+    @include flex-grow(0);
+    @include flex-shrink(0);
+  }
+
+  .tree-node__label {
+    @include flex-basis(auto);
+    @include flex-grow(0);
+    margin-left: $button-padding;
+  }
+
+  .tree-node__text {
+    @include flex-basis(auto);
+    @include flex-grow(1);
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  children {
+    display: block;
+  }
+}
+
+*:focus {
+  outline: none;
+}
+
+tree-node-children {
+}
+
+.modal-backdrop {
+  display: none !important;
 }

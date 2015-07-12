@@ -16,11 +16,16 @@ angular.module('domExplorerApp')
       var data = {name: ele.tagName, id: ++id, level: level, type: ele.nodeType, closed: false, ele: ele};
       data.children = [];
 
-      ele = angular.element(ele);
-      if (ele.text()) {
+      if (ele.nodeType === 3) {
+        data.text = ele.textContent;
+        if (!/\S/.test(data.text)) {
+          return null;
+        }
       }
 
-      var children = ele.children();
+      ele = angular.element(ele);
+
+      var children = ele.contents();
       for (var i = 0; i < children.length; ++i) {
         var child = children[i];
         var node = domToNode(child, 1 + level);
@@ -35,24 +40,23 @@ angular.module('domExplorerApp')
       if (!level) {
         level = 0;
       }
-      if (ele.id == 'overlay' || ele.id == 'fade') { // prevent recursion into dialog
+      if (ele.id === 'overlay' || ele.id === 'fade') { // prevent recursion into dialog
         return null;
       }
 
-      switch (ele.nodeType) {
+      var out = null;
 
+      switch (ele.nodeType) {
         case 1: // element
-          return _tag(ele, level);
+          out = _tag(ele, level);
           break;
 
         case 3: // text
-          return _tag(ele, level);
+          out = _tag(ele, level);
           break;
-
-        default:
-          console.log('ignoring ', ele);
-          return null;
       }
+
+      return out;
     }
 
     return function (html) {
