@@ -1,30 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="df0d8132-01f7-4e88-98a8-535af69684fb" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/favicon.ico" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/icon-sprite.bd0a458f.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/yeoman.8cb970fb.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.htaccess" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/404.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/styles/main.4394ee12.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/robots.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scripts/scripts.60914fd9.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scripts/vendor.9967e0e9.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/styles/vendor.d41d8cd9.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.jshintrc" afterPath="$PROJECT_DIR$/.jshintrc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/.jshintrc" afterPath="$PROJECT_DIR$/test/.jshintrc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/dialog/dialog.html" afterPath="$PROJECT_DIR$/app/views/dialog/dialog.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/services/domnodes.js" afterPath="$PROJECT_DIR$/app/scripts/services/domnodes.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/index.html" afterPath="$PROJECT_DIR$/app/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/main.html" afterPath="$PROJECT_DIR$/app/views/main.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/controllers/main.js" afterPath="$PROJECT_DIR$/app/scripts/controllers/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/styles/main.scss" afterPath="$PROJECT_DIR$/app/styles/main.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/filters/propercase.js" afterPath="$PROJECT_DIR$/app/scripts/filters/propercase.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/directives/tree.js" afterPath="$PROJECT_DIR$/app/scripts/directives/tree.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/directives/treenodechildren.js" afterPath="$PROJECT_DIR$/app/scripts/directives/treenodechildren.js" />
-    </list>
+    <list default="true" id="df0d8132-01f7-4e88-98a8-535af69684fb" name="Default" comment="" />
     <ignored path="dom_explorer.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -86,11 +63,24 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="tree.js" pinned="false" current-in-tab="true">
+          <file leaf-file-name="tree.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/scripts/directives/tree.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.90515804">
+                <state vertical-scroll-proportion="0.0">
                   <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/README.md">
+              <provider editor-type-id="MarkdownPreviewEditor">
+                <state />
+              </provider>
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.02972028">
+                  <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -127,16 +117,6 @@
                     <marker date="1436660994000" expanded="true" signature="3824:4117" placeholder="{...}" />
                     <marker date="1436660994000" expanded="true" signature="4179:4384" placeholder="{...}" />
                   </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="tree.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/test/spec/directives/tree.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-                  <folding />
                 </state>
               </provider>
             </entry>
@@ -243,6 +223,7 @@
         <option value="$PROJECT_DIR$/app/scripts/filters/propercase.js" />
         <option value="$PROJECT_DIR$/app/scripts/services/domnodes.js" />
         <option value="$PROJECT_DIR$/app/scripts/directives/tree.js" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -445,19 +426,25 @@
       <option name="project" value="LOCAL" />
       <updated>1436654651813</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="final build; prepared for distribution">
+      <created>1436661741117</created>
+      <option name="number" value="00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1436661741117</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="165" y="23" width="2163" height="1380" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.50158477" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16479926" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16479926" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
@@ -506,7 +493,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="iniital commit" />
     <MESSAGE value="work on formatting, layout, interaction" />
-    <option name="LAST_COMMIT_MESSAGE" value="work on formatting, layout, interaction" />
+    <MESSAGE value="final build; prepared for distribution" />
+    <option name="LAST_COMMIT_MESSAGE" value="final build; prepared for distribution" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -726,8 +714,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/directives/tree.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.90515804">
+        <state vertical-scroll-proportion="0.0">
           <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.02972028">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding />
         </state>
       </provider>
