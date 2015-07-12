@@ -1,0 +1,18 @@
+<div id="overlay" ng-show="display" class="dialog">
+  <header>
+    <div class="dialog__title">Title</div>
+    <div class="close">
+      <a href ng-click="close()">&times;</a></div>
+  </header>
+  <nav><div class="dialog__label">Label</div></nav>
+  <section class="domNodes">
+    <tree ng-repeat="node in map" node="node">
+    </tree>
+  </section>
+  <footer>
+    <a class="dialog-footer__link" href="#">Link</a>
+    <button class="dialog-footer__button" ng-click="close()">Done</button>
+  </footer>
+</div>
+
+<div id="fade" ng-click="close()" ng-show="display"></div>
